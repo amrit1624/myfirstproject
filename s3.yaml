@@ -1,0 +1,21 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: A simple CloudFormation template to create an S3 bucket.
+
+Resources:
+  MyS3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: my-unique-s3-bucket-name-12345
+      Tags:
+        - Key: Environment
+          Value: Development
+        - Key: Project
+          Value: MyAwesomeProject
+
+Outputs:
+  BucketName:
+    Description: The name of the S3 bucket.
+    Value: !Ref MyS3Bucket
+  BucketArn:
+    Description: The ARN of the S3 bucket.
+    Value: !GetAtt MyS3Bucket.Arn
