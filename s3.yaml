@@ -19,3 +19,11 @@ Outputs:
   BucketArn:
     Description: The ARN of the S3 bucket.
     Value: !GetAtt MyS3Bucket.Arn
+
+      Resources:
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    DeletionPolicy: Retain
+    Properties:
+      BucketName: DOC-EXAMPLE-BUCKET
+
